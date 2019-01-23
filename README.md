@@ -9,9 +9,7 @@ y(k+1) = y(k) + t * v_t * sin(theta)
 theta(k+1) = theta(k) + t * v_ang
 ```
 
-in which t is a step of time, v_t is translate velocity and v_ang is the angular velocity. 
-
-The model is with the noise, whose covariance is 0.0025 and 0.005 for translation and rotation respectively.
+in which t is a step of time, v_t is translate velocity and v_ang is the angular velocity. The model is with the noise, whose covariance is 0.0025 and 0.005 for translation and rotation respectively.
 
 When the robot is close to the landmarks, the sensor get the location of landmarks and then calculate the bearing and range in the following equation:
 
@@ -22,9 +20,7 @@ bearing = atan2(yl-yr, xl-xr) - thetar
 
 in which (xr, yr, thetar) represent the state of the robot and (xl, yl) indicate the location of landmarks. There are also noise for the sensor measurements.
 
-To run it, first build it in the workspace and then source the setup.bash (if you use zsh, source setup.zsh).
-
-Then in the terminal:
+To run it, first build it in the workspace and then source the setup.bash (if you use zsh, source setup.zsh).Then in the terminal:
 
 ```
 roslaunch state_estimator estimator.launch
@@ -40,9 +36,9 @@ rosrun state_estimator robot.py
 
 The landmarks appear and the robots start to move randomly. 
 
-You can also open the nodes separately but the estimator must be opened **before** the robot moves.
+![moving](https://github.com/zyx124/extended_kalman_filter/blob/master/state_estimator/state_estimator.png?raw=true)
 
-You can modify the est.py file to see changes in the behavior of the robot.
+You can also open the nodes separately but the estimator must be opened **before** the robot moves.You can modify the est.py file to see changes in the behavior of the robot.
 
 
 
